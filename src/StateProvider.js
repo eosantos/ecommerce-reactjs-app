@@ -1,15 +1,12 @@
+//Preparando a camada de dados
 import React, { createContext, useContext, useReducer } from "react";
-
-//Preparing the data layer
-export const StageContext = createContext();
-
+//Esta é a camada de dados
+export const StateContext = createContext();
 //wrap our components, provide the provider
 export const StateProvider = ({ reducer, initialState, children }) => (
-  <StateProvider.Provider value={useReducer(reducer, initialState)}>
+  <StateContext.Provider value={useReducer(reducer, initialState)}>
     {children}
-  </StateProvider.Provider>
+  </StateContext.Provider>
 );
-
-//Assim podemos usá-lo dentro de um componente
-
-export const UseStateValue = () => useContext(StateProvider);
+//Desta forma podemos usá-lo dentro de um componente
+export const useStateValue = () => useContext(StateContext);

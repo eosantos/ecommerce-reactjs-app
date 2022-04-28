@@ -41,12 +41,12 @@
 .header-option {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 .header-optionLineOne {
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .header-optionLineTwo {

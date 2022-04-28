@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import AddShoppingCartOutlinedIcon from "@material-ui/icons/AddShoppingCartOutlined";
 
 function Header() {
+  /*  const [{ cart }, dispatch] = useStateValue();*/
+
   return (
     <nav className="header">
       <img
@@ -18,14 +20,16 @@ function Header() {
       </div>
       <Link to="/" className="header-link">
         <div className="header-option">
-          <span className="header-optionLineOne">Olá, Usuário</span>
-          <span className="header-optionLineTwo">Sign in or Sign Out</span>
+          <span className="header-optionLineOne">Olá,</span>
+          <span className="header-optionLineTwo">Faça seu login</span>
         </div>
       </Link>
       <Link to="/checkout" className="header-link">
         <div className="header-optionCart">
           <AddShoppingCartOutlinedIcon />
-          <span className="header-optionLineTwo header-cartCount">8</span>
+          <span className="header-optionLineTwo header-cartCount">
+            {/*cart?.length*/}0
+          </span>
         </div>
       </Link>
     </nav>
