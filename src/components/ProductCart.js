@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductCart.css";
 import { useStateValue } from "../StateProvider";
 
 function ProductCart({ id, title, image, price, rating }) {
   const [, dispatch] = useStateValue();
+
+  const [, setData] = useState();
+
+  useEffect(() => {
+    async function fetchData() {
+      const repsonse = await fetch("https://fakestoreapi.com/products");
+      const result = await repsonse.json();
+      setData(result);
+    }
+    fetchData();
+  });
 
   const removeItem = () => {
     dispatch({
@@ -26,7 +37,7 @@ function ProductCart({ id, title, image, price, rating }) {
             <span key={index}>*</span>
           ))}
       </div>
-      <button onClick={removeItem}>Excluir do carrinho</button>
+      <button onClick={removeItem}>Excluir do carrinho</button>;
     </div>
   );
 }

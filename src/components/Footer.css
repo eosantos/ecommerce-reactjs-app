@@ -1,0 +1,15 @@
+.footer-area {
+  background-color: rgb(8, 1, 42);
+  width: 100%;
+  min-height: 100px;
+  color: white;
+  margin-top: 50px;
+}
+
+.footer-areaTop {
+  background-color: rgb(8, 1, 42);
+  min-height: 60px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
