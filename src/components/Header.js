@@ -3,9 +3,10 @@ import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import AddShoppingCartOutlinedIcon from "@material-ui/icons/AddShoppingCartOutlined";
+/*import { useStateValue } from "./StateProvider";*/
 
 function Header() {
-  /*  const [{ cart }, dispatch] = useStateValue();*/
+  /*const [{ cart }] = useStateValue();*/
 
   return (
     <nav className="header">
@@ -28,7 +29,7 @@ function Header() {
         <div className="header-optionCart">
           <AddShoppingCartOutlinedIcon />
           <span className="header-optionLineTwo header-cartCount">
-            {/*cart?.length*/}0
+            {/*cart?.length*/}1
           </span>
         </div>
       </Link>

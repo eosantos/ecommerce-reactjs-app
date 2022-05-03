@@ -1,0 +1,28 @@
+.product-cart {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.product-cart-img {
+  object-fit: contain;
+  width: 160px;
+  height: 160px;
+  border: 1px solid #ccc;
+}
+
+.product-cart-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.product-cart-info {
+  padding-left: 20px;
+}
+
+.product-cart-info > button {
+  background-color: aquamarine;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: #a88734 #9c7e31 #846a29;
+}
