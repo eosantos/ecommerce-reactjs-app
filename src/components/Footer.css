@@ -3,7 +3,6 @@
   width: 100%;
   min-height: 100px;
   color: white;
-  margin-top: 50px;
 }
 
 .footer-areaTop {
@@ -12,4 +11,14 @@
   justify-content: center;
   align-items: center;
   display: flex;
+}
+
+.footer-area-links {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 100px;
 }
