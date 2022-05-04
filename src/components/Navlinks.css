@@ -1,0 +1,31 @@
+.navilinks {
+  background-color: rgba(8, 1, 42, 0.808);
+  height: 39px;
+  color: white;
+}
+
+.navilinks-outer {
+  width: 70%;
+  margin: auto;
+  padding: 6px;
+}
+
+.navilinks-outer a {
+  color: whitesmoke;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-top: 10px;
+  margin-right: 50px;
+  border: 1px rgba(8, 1, 42, 0.808);
+}
+
+.navilinks-outer a:hover {
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
+
+.navilinks-inner {
+  margin-top: 3px;
+  text-align: center;
+}
