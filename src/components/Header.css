@@ -18,6 +18,8 @@
 .header-search {
   display: flex;
   flex: 1;
+  border-radius: 7px 0px 0px 7px;
+  border: none;
 }
 
 .header-searchInput {
@@ -29,8 +31,11 @@
 
 .header-searchIcon {
   padding: 5px;
-  height: 22px !important;
+  height: 25px;
+  width: 25px;
   background-color: rgb(120, 217, 138);
+  border-radius: 0px 7px 7px 0px;
+  border: none;
 }
 
 .header-link {

@@ -1,58 +1,55 @@
 import React from "react";
 import "./Footer.css";
 import logo from "../assets/img/logoLivenShop.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 
 function Footer() {
   return (
     <div className="footer-area">
-      <footer class="social-footer">
+      <div className="footer-areaTop">
+        <div className="logoFooter">
+          <img className="header-logo" alt="logo" src={logo} />
+        </div>
         <div class="social-footer-icons">
-          <ul class="menu simple">
-            <li>
-              <a href="https://www.facebook.com/">
-                <FontAwesomeIcon icon="fa-brands fa-facebook-square" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/?hl=en">
-                <i class="fa fa-instagram" aria-hidden="true">
-                  2
-                </i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.pinterest.com/">
-                <i class="fa fa-pinterest-p" aria-hidden="true">
-                  3
-                </i>
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/?lang=en">
-                <i class="fa-twitter" aria-hidden="true">
-                  4
-                </i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </footer>
-      <div className="footer-area-links">
-        <div className="footer-area-link">
-          <span>Fale conosco</span>
-        </div>
-        <div className="footer-area-link">
-          <span>Marketplace</span>
-        </div>
-        <div className="footer-area-link">
-          <span>Serviços</span>
-        </div>
-        <div className="footer-area-link">
-          <span>Parcerias</span>
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faFacebook} />
+          </a>
+          <a href="https://www.twitter.com/" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faTwitter} />
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
         </div>
       </div>
-      <div className="footer-areaTop">
-        <img className="header-logo" alt="logo" src={logo} />
+
+      <div className="footer-area-links">
+        <div className="footer-area-link">
+          <a href="/">
+            <span>Fale conosco</span>
+          </a>
+        </div>
+        <div className="footer-area-link">
+          <a href="/">
+            <span>Marketplace</span>
+          </a>
+        </div>
+
+        <div className="footer-area-link">
+          <a href="/">
+            <span>Serviços</span>
+          </a>
+        </div>
+        <div className="footer-area-link">
+          <a href="/">
+            <span>Parcerias</span>
+          </a>
+        </div>
       </div>
     </div>
   );
