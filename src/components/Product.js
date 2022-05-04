@@ -39,7 +39,19 @@ function Product({ id, title, image, price, rating }) {
                 </p>
               </div>
               <img src={product.image} alt={product.title} />
-              <button onClick={addToCart}>Comprar</button>
+              <button
+                onClick={() =>
+                  addToCart(
+                    data.id,
+                    data.title,
+                    data.image,
+                    data.price,
+                    data.rating
+                  )
+                }
+              >
+                Comprar
+              </button>
             </div>
           ))}
         </div>
@@ -47,8 +59,7 @@ function Product({ id, title, image, price, rating }) {
     }
   }
 
-  //console.log(dispatch);
-  const addToCart = () => {
+  const addToCart = (id, title, image, price, rating) => {
     dispatch({
       type: "ADD_TO_CART",
       item: {
@@ -60,7 +71,7 @@ function Product({ id, title, image, price, rating }) {
       },
     });
   };
-
+  console.log(id);
   return (
     <div>
       {renderLoading()}

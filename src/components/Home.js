@@ -1,15 +1,12 @@
 import React from "react";
 import Product from "./Product";
 import "./Home.css";
+import Banner from "../assets/img/BannerLivenShop.png";
 
 function Home() {
   return (
     <div className="home">
-      <img
-        className="home-image"
-        src="https://m.media-amazon.com/images/I/61J7RPieVOL._SX1500_.jpg"
-        alt=""
-      />
+      <img className="home-image" src={Banner} alt="" />
 
       <div className="home-row">
         <Product />

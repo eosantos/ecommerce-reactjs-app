@@ -3,6 +3,7 @@ import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import AddShoppingCartOutlinedIcon from "@material-ui/icons/AddShoppingCartOutlined";
+import logo from "../assets/img/logoLivenShop.png";
 /*import { useStateValue } from "./StateProvider";*/
 
 function Header() {
@@ -10,11 +11,7 @@ function Header() {
 
   return (
     <nav className="header">
-      <img
-        className="header-logo"
-        alt="logo"
-        src="https://liven.tech/_next/image?url=%2Fimages%2Flogo-2x.png&w=256&q=75"
-      />
+      <img className="header-logo" alt="logo" src={logo} />
       <div className="header-search">
         <input type="text" className="header-search" />
         <SearchIcon className="header-searchIcon" />
