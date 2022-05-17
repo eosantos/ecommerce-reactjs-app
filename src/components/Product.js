@@ -26,14 +26,15 @@ function Product() {
           {data.map((item, index) => (
             <div key={item.id} className="product">
               <div className="product-info">
-                <p>{item.title}</p>
+                <p className="text-product-info">{item.title}</p>
                 <p className="product-price">
                   {" "}
-                  {item?.price.toLocaleString("pt-br", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
-                  <strong>{item.price}</strong>
+                  <strong>
+                    {item?.price.toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </strong>
                 </p>
                 <p className="product-rating">
                   {item.rating.rate > 1 && (

@@ -52,42 +52,44 @@ function ProductCart({ product }) {
                 currency: "BRL",
               })}
             </p>
-
-            {product?.product?.rating?.rate > 1 && (
-              <Rating
-                name="half-rating-read"
-                defaultValue={product?.product?.rating?.rate}
-                precision={
-                  Number(product?.product?.rating?.rate.toString().split("."))
-                    ?.length > 1
-                    ? product?.product?.rating?.rate.toString().split(".")[1]
-                    : 0.5
-                }
-                readOnly
-              />
-            )}
-
-            <FormControl className={classes.formControl}>
-              <InputLabel id="demo-simple-select-label">Qtd</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={qtd}
-                onChange={handleChange}
-              >
-                <MenuItem value={0}>0 (Excluir)</MenuItem>
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={4}>4</MenuItem>
-                <MenuItem value={5}>5</MenuItem>
-                <MenuItem value={6}>6</MenuItem>
-                <MenuItem value={7}>7</MenuItem>
-                <MenuItem value={8}>8</MenuItem>
-                <MenuItem value={9}>9</MenuItem>
-                <MenuItem value={10}>10</MenuItem>
-              </Select>
-            </FormControl>
+            <div className="product-cart-rating">
+              {product?.product?.rating?.rate > 1 && (
+                <Rating
+                  name="half-rating-read"
+                  defaultValue={product?.product?.rating?.rate}
+                  precision={
+                    Number(product?.product?.rating?.rate.toString().split("."))
+                      ?.length > 1
+                      ? product?.product?.rating?.rate.toString().split(".")[1]
+                      : 0.5
+                  }
+                  readOnly
+                />
+              )}
+            </div>
+            <div className="product-cart-formQtd">
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-simple-select-label">Qtd</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={qtd}
+                  onChange={handleChange}
+                >
+                  <MenuItem value={0}>0 (Excluir)</MenuItem>
+                  <MenuItem value={1}>1</MenuItem>
+                  <MenuItem value={2}>2</MenuItem>
+                  <MenuItem value={3}>3</MenuItem>
+                  <MenuItem value={4}>4</MenuItem>
+                  <MenuItem value={5}>5</MenuItem>
+                  <MenuItem value={6}>6</MenuItem>
+                  <MenuItem value={7}>7</MenuItem>
+                  <MenuItem value={8}>8</MenuItem>
+                  <MenuItem value={9}>9</MenuItem>
+                  <MenuItem value={10}>10</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
           </div>
         </>
       )}

@@ -29,7 +29,19 @@
   margin-bottom: 15px;
 }
 
-.product-price {
+.text-product-info {
+  height: 50px;
+}
+
+.product-cart-price {
+  margin-top: 5px;
+}
+
+.product-cart-rating {
+  margin-top: 5px;
+}
+
+.product-cart-formQtd {
   margin-top: 5px;
 }
 

@@ -1,16 +1,19 @@
 import React from "react";
+import "./Subtotal.css";
 
 function Subtotal({ product }) {
   const totalValue = product.product.price * product.quantity;
 
   return (
-    <div className="subtotal">
+    <div>
       <div>
-        <p>Valor total a pagar</p>
-        {totalValue.toLocaleString("pt-br", {
-          style: "currency",
-          currency: "BRL",
-        })}
+        <p className="subtotal-text">Subtotal ({product.quantity}) itens</p>
+        <span className="subtotal-price">
+          {totalValue.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </span>
       </div>
     </div>
   );

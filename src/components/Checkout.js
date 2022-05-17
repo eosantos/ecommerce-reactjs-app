@@ -48,14 +48,18 @@ function Checkout() {
             </div>
           ) : (
             <div className="shopping_cart_tittle">
-              <h2>Itens no carrinho de compras</h2>
-              {products.map((item, index) => (
-                <>
-                  <ProductCart key={index} product={item} />
+              <h2 className="title-cart">Itens no carrinho de compras</h2>
+              <div className="spacing-products">
+                {products.map((item, index) => (
+                  <>
+                    <div className="product-cart-checkout">
+                      <ProductCart key={index} product={item} />
+                    </div>
 
-                  <Subtotal key={index} product={item} />
-                </>
-              ))}
+                    <Subtotal key={index} product={item} />
+                  </>
+                ))}
+              </div>
               <button
                 onClick={() => {
                   history.push("/");
@@ -68,8 +72,8 @@ function Checkout() {
           )}
         </div>
       )}
-      <div>
-        Valor Total <span className="valueTotal">{getValueTotal()}</span>
+      <div className="valueTotal">
+        Valor Total <span className="valueTotal-price">{getValueTotal()}</span>
       </div>
     </div>
   );
