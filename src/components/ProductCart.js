@@ -1,43 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ProductCart.css";
-import { useStateValue } from "../StateProvider";
+import { Rating } from "@material-ui/lab";
 
-function ProductCart({ id, title, image, price, rating }) {
-  const [, dispatch] = useStateValue();
-
-  const [, setData] = useState();
-
-  useEffect(() => {
-    async function fetchData() {
-      const repsonse = await fetch("https://fakestoreapi.com/products");
-      const result = await repsonse.json();
-      setData(result);
-    }
-    fetchData();
-  });
-
-  const removeItem = () => {
+function ProductCart({ product }) {
+  /*  const removeItem = () => {
     dispatch({
       type: "REMOVE_FROM_CART",
       id: id,
     });
-  };
+  }; */
+
+  console.log(product);
 
   return (
     <div className="product-cart">
-      <img className="product-cart-img" src={image} alt="" />
+      <img className="product-cart-img" src={product?.product?.image} alt="" />
       <div className="product-cart-info">
-        <p className="product-cart-title">{title}</p>
-        <p className="product-cart-price">R${price}</p>
+        <p className="product-cart-title">{product?.product?.title}</p>
+        <p className="product-cart-price">R$ {product?.product?.price}</p>
       </div>
+
       <div className="product-cart-rating">
-        {Array(rating)
-          .fill()
-          .map((_, index) => (
-            <span key={index}>*</span>
-          ))}
+        {product?.product?.rating?.rate > 1 && (
+          <Rating
+            name="half-rating-read"
+            defaultValue={product?.product?.rating?.rate}
+            precision={
+              Number(product?.product?.rating?.rate.toString().split("."))
+                ?.length > 1
+                ? product?.product?.rating?.rate.toString().split(".")[1]
+                : 0.5
+            }
+            readOnly
+          />
+        )}
       </div>
-      <button onClick={removeItem}>Excluir do carrinho</button>;
+      {/* <button onClick={removeItem}>Excluir do carrinho</button>; */}
     </div>
   );
 }

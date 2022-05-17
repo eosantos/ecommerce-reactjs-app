@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Product.css";
-import { useStateValue } from "../StateProvider";
+import { useCart } from "./CartContext";
+import { Rating } from "@material-ui/lab";
 
-function Product({ id, title, image, price, rating }) {
-  const [, dispatch] = useStateValue();
-
+function Product() {
   const [data, setData] = useState();
+
+  const cart = useCart();
 
   useEffect(() => {
     async function fetchData() {
@@ -16,41 +17,46 @@ function Product({ id, title, image, price, rating }) {
     fetchData();
   }, []);
 
+  /*   const Product =({product}) => {
+  const cart = useCart()
+  const add = (product) => () {
+    cart.addToCart(product)
+  } */
+
   function renderLoading() {
     if (data === undefined) {
       return <h1>Loading</h1>;
     } else {
       return (
         <div className="products">
-          {data.map((product) => (
-            <div key={product.id} className="product">
+          {data.map((item, index) => (
+            <div key={item.id} className="product">
               <div className="product-info">
-                <p>{product.title}</p>
+                <p>{item.title}</p>
                 <p className="product-price">
-                  <small>R$</small>
-                  <strong>{product.price}</strong>
+                  <small>R$ </small>
+                  <strong>{item.price}</strong>
                 </p>
                 <p className="product-rating">
-                  {Array(product.rating)
-                    .fill()
-                    .map((_, index) => (
-                      <p key={index}>*</p>
-                    ))}{" "}
+                  {item.rating.rate > 1 && (
+                    <Rating
+                      key={index}
+                      name="half-rating-read"
+                      defaultValue={item.rating.rate}
+                      precision={
+                        Number(item.rating?.rate.toString().split("."))
+                          ?.length > 1
+                          ? item.rating?.rate.toString().split(".")[1]
+                          : 0.5
+                      }
+                      readOnly
+                    />
+                  )}
                 </p>
               </div>
-              <img src={product.image} alt={product.title} />
-              <button
-                onClick={() =>
-                  addToCart(
-                    data.id,
-                    data.title,
-                    data.image,
-                    data.price,
-                    data.rating
-                  )
-                }
-              >
-                Comprar
+              <img src={item.image} alt={item.title} />
+              <button onClick={() => cart.addToCart(item)}>
+                Adicionar ao Carrinho
               </button>
             </div>
           ))}
@@ -59,9 +65,10 @@ function Product({ id, title, image, price, rating }) {
     }
   }
 
-  const addToCart = (id, title, image, price, rating) => {
+  /*   const addToCart = (product) => {
+    const { id, title, image, price, rating } = product;
     dispatch({
-      type: "ADD_TO_CART",
+      type: "addToCart",
       item: {
         id: id,
         title: title,
@@ -70,8 +77,9 @@ function Product({ id, title, image, price, rating }) {
         rating: rating,
       },
     });
-  };
-  console.log(id);
+    history.push("/checkout");
+  }; */
+
   return (
     <div>
       {renderLoading()}

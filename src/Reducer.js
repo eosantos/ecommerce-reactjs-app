@@ -3,9 +3,13 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  console.log(action);
+  console.log(action, "reducer");
   switch (action.type) {
     case "ADD_TO_CART":
+      localStorage.setItem(
+        "cart",
+        JSON.stringify({ ...state, cart: [...state.cart, action.item] })
+      );
       return {
         ...state,
         cart: [...state.cart, action.item],
@@ -17,6 +21,11 @@ const reducer = (state = initialState, action) => {
       );
       if (index >= 0) {
         newCart.splice(index, 1);
+
+        localStorage.setItem(
+          "cart",
+          JSON.stringify({ ...state, cart: newCart })
+        );
       }
       break;
     default:

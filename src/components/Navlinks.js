@@ -7,11 +7,11 @@ function Navilinks() {
     <div className="navilinks">
       <div className="navilinks-outer">
         <div className="navilinks-inner">
-          <Link>Bolsas e Malas</Link>
-          <Link>Roupas Masculinas</Link>
-          <Link>Roupas Femininas</Link>
-          <Link>Acessórios</Link>
-          <Link>Informática</Link>
+          <Link to="/">Bolsas e Malas</Link>
+          <Link to="/">Roupas Masculinas</Link>
+          <Link to="/">Roupas Femininas</Link>
+          <Link to="/">Acessórios</Link>
+          <Link to="/">Informática</Link>
         </div>
       </div>
     </div>
