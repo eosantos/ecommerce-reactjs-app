@@ -1,10 +1,17 @@
 import React from "react";
-import CurrencyFormat from "react-currency-format";
 
-function Subtotal() {
+function Subtotal({ product }) {
+  const totalValue = product.product.price * product.quantity;
+
   return (
     <div className="subtotal">
-      <button>Comprar</button>
+      <div>
+        <p>Valor total a pagar</p>
+        {totalValue.toLocaleString("pt-br", {
+          style: "currency",
+          currency: "BRL",
+        })}
+      </div>
     </div>
   );
 }

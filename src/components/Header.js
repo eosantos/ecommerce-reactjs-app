@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import AddShoppingCartOutlinedIcon from "@material-ui/icons/AddShoppingCartOutlined";
 import logo from "../assets/img/logoLivenShop.png";
 import { useCart } from "./CartContext";
+import { useHistory } from "react-router-dom";
 
 function Header() {
+  const history = useHistory();
   const cart = useCart();
 
   const itemsCount = Object.keys(cart.cart).reduce((prev, curr) => {
@@ -23,7 +25,14 @@ function Header() {
  */
   return (
     <nav className="header">
-      <Link to="/" className="header-link">
+      <Link
+        to="/"
+        onClick={() => {
+          history.push("/");
+          window.location.reload();
+        }}
+        className="header-link"
+      >
         <img className="header-logo" alt="logo" src={logo} />
       </Link>
       <div className="header-search">
@@ -36,17 +45,24 @@ function Header() {
           <span className="header-optionLineTwo">Faça seu login</span>
         </div>
       </Link>
-      <div to="/checkout" className="header-link">
-        <div className="header-optionCart" onClick={() => {}}>
+
+      <Link to="/checkout" className="header-link">
+        <div
+          className="header-optionCart"
+          onClick={() => {
+            history.push("/checkout");
+            window.location.reload();
+          }}
+        >
           <AddShoppingCartOutlinedIcon />
 
-          {itemsCount > 0 && (
+          {itemsCount && (
             <span className="header-optionLineTwo header-cartCount">
               {itemsCount}
             </span>
           )}
         </div>
-      </div>
+      </Link>
     </nav>
   );
 }

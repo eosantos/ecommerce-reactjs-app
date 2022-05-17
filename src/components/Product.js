@@ -17,12 +17,6 @@ function Product() {
     fetchData();
   }, []);
 
-  /*   const Product =({product}) => {
-  const cart = useCart()
-  const add = (product) => () {
-    cart.addToCart(product)
-  } */
-
   function renderLoading() {
     if (data === undefined) {
       return <h1>Loading</h1>;
@@ -34,7 +28,11 @@ function Product() {
               <div className="product-info">
                 <p>{item.title}</p>
                 <p className="product-price">
-                  <small>R$ </small>
+                  {" "}
+                  {item?.price.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
                   <strong>{item.price}</strong>
                 </p>
                 <p className="product-rating">
@@ -64,21 +62,6 @@ function Product() {
       );
     }
   }
-
-  /*   const addToCart = (product) => {
-    const { id, title, image, price, rating } = product;
-    dispatch({
-      type: "addToCart",
-      item: {
-        id: id,
-        title: title,
-        image: image,
-        price: price,
-        rating: rating,
-      },
-    });
-    history.push("/checkout");
-  }; */
 
   return (
     <div>
