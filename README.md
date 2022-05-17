@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# Ecommerce-React-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição
 
-## Available Scripts
+Projeto para fins de treinamento utilizando React, Typescript, Next.js, ES6.
 
-In the project directory, you can run:
+## Dependências do sistema
 
-### `npm start`
+- [NodeJS >= v14.15.4](https://nodejs.org/en/download/)
+  - NPM v7.11.2
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Estrutura
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    Ecommerce-React-App
+    ├── src                            (Diretório principal dos arquivos do projeto)
+    │   ├── assets                     (Recursos de folhas de estilo, scripts, fontes e imagens)
+    │   ├── components                 (Componentes que não possuem estados, são chamados de dummy components)
+    │   ├── router                     (Permite a navegação entre visualizações de vários componentes em um aplicativo React)
+    │   ├── service                    (Utilizado para transferir dados através de protocolos de comunicação para diferentes plataformas)
+    ├── README.md                      (Breve definição/Documentação)
+    └── ...                            (Outros arquivos de configuração)
 
-### `npm test`
+### Ferramentas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React](https://pt-br.reactjs.org/docs/getting-started.html)
 
-### `npm run build`
+- [TypeScript](https://www.typescriptlang.org/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Git](https://git-scm.com/doc)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Material-UI](https://material-ui.com/getting-started/installation/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Montagem do ambiente de desenvolvimento
 
-### `npm run eject`
+O primeiro passo é clonar o projeto utilizando o método HTTPS ou SSH.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+SSH
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+git clone git@github.com:eosantos/ecommerce-reactjs-app.git
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+HTTPS
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```sh
+git clone https://github.com/eosantos/ecommerce-reactjs-app.git
+```
 
-## Learn More
+### Instalar dependências do projeto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Com o comando abaixo instalamos todos os pacotes definidos no package.json para configuração do servidor local:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+npm i
+```
 
-### Code Splitting
+### Acessando a aplicação
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Para iniciar o projeto basta executar o comando abaixo:
 
-### Analyzing the Bundle Size
+```sh
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Após a execução do comando acima basta abrir o link `http://localhost:3000`.
 
-### Making a Progressive Web App
+### Commit
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Para nossos commits utilizamos a seguinte estrutura:
 
-### Advanced Configuration
+```
+feat: mensagem curta
+^--^  ^------------^
+|     |
+|     +-> Resumo da alteração
+|
++-------> Tipos: chore, docs, feat, fix, refactor, style, or test.
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Exemplos:
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `feat/feature`: (novo recurso para o usuário, não um novo recurso para script de compilação)
+- `fix`: (correção de bug para o usuário, não uma correção para um script de construção)
+- `docs`: (alterações na documentação)
+- `style`: (formatação, ponto e vírgula faltando etc; sem alteração do código de produção)
+- `refactor`: (refatorando o código de produção, por exemplo, renomeando uma variável)
+- `test`: (adicionando testes ausentes, testes de refatoração; nenhuma alteração no código de produção)
+- `chore`: (atualização de tarefas e etc; sem alteração do código de produção)
