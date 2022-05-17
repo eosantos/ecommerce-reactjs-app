@@ -12,11 +12,14 @@ function Checkout() {
 
   const [products, setProducts] = useState(Object.values(cart ?? {}) ?? []);
 
+  const [loading, setLoadingIndex] = useState({ id: null, loading: false });
+
+  /* 
   useEffect(() => {
     if (cart.loading) {
       setProducts(Object.values(cart ?? {}));
     }
-  }, [cart]);
+  }, [cart]); */
 
   function getValueTotal() {
     let totalValue = 0;
@@ -32,6 +35,37 @@ function Checkout() {
       currency: "BRL",
     });
   }
+
+  const handleChangeQuantity = (value, productId) => {
+    try {
+      setLoadingIndex({
+        loading: true,
+        id: productId,
+      });
+
+      let newProducts = [...products];
+
+      const index = newProducts.findIndex((el) => el.product?.id === productId);
+      console.log(value);
+      if (index !== -1) {
+        if (value === 0) {
+          newProducts.slice(index, 1);
+          console.log();
+          setProducts(newProducts);
+        }
+        products[index].quantity = value;
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setTimeout(() => {
+        setLoadingIndex({
+          loading: true,
+          id: null,
+        });
+      }, 300);
+    }
+  };
 
   return (
     <div className="checkout">
@@ -52,11 +86,20 @@ function Checkout() {
               <div className="spacing-products">
                 {products.map((item, index) => (
                   <>
-                    <div className="product-cart-checkout">
-                      <ProductCart key={index} product={item} />
-                    </div>
-
-                    <Subtotal key={index} product={item} />
+                    {item.product?.id === loading.id && loading.loading ? (
+                      <CircularProgress />
+                    ) : (
+                      <>
+                        <div className="product-cart-checkout">
+                          <ProductCart
+                            key={index}
+                            product={item}
+                            onChangeQuantity={handleChangeQuantity}
+                          />
+                        </div>
+                        <Subtotal key={index} product={item} />
+                      </>
+                    )}
                   </>
                 ))}
               </div>

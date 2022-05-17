@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProductCart({ product }) {
+function ProductCart({ product, onChangeQuantity = () => {} }) {
   const classes = useStyles();
   const [qtd, setQtd] = React.useState(product?.quantity);
 
@@ -27,7 +27,8 @@ function ProductCart({ product }) {
 
   const handleChange = (event) => {
     setQtd(event.target.value);
-    cart.removeOrUpdateCard(product?.product, event.target.value);
+    onChangeQuantity(event.target.value, product?.product?.id);
+    /*  cart.removeOrUpdateCard(product?.product, event.target.value); */
   };
 
   return (
