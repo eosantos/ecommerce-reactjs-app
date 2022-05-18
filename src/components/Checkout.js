@@ -5,6 +5,7 @@ import ProductCart from "./ProductCart";
 import { getCart } from "./CartContext";
 import { useHistory } from "react-router-dom";
 import { CircularProgress } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 function Checkout() {
   const cart = getCart();
@@ -96,27 +97,47 @@ function Checkout() {
                             product={item}
                             onChangeQuantity={handleChangeQuantity}
                           />
+                          <div className="product-subtotal">
+                            <Subtotal key={index} product={item} />
+                          </div>
                         </div>
-                        <Subtotal key={index} product={item} />
                       </>
                     )}
                   </>
                 ))}
               </div>
-              <button
+              <Button
+                className="btn-finalized"
+                variant="contained"
+                //className="btn-adc-products"
                 onClick={() => {
                   history.push("/");
                   window.location.reload();
                 }}
               >
                 Adicionar Produtos
-              </button>
+              </Button>
             </div>
           )}
         </div>
       )}
-      <div className="valueTotal">
-        Valor Total <span className="valueTotal-price">{getValueTotal()}</span>
+      <div className="container-valueTotal">
+        <div className="valueTotal">
+          <h1 className="titleTotal">Valor Total</h1>
+          <span className="valueTotal-price">{getValueTotal()}</span>
+
+          <Button
+            className="btn-finalized"
+            variant="contained"
+            fullWidth={true}
+            onClick={() => {
+              history.push("/");
+              window.location.reload();
+            }}
+          >
+            Fechar pedido
+          </Button>
+        </div>
       </div>
     </div>
   );

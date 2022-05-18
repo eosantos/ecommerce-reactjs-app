@@ -8,7 +8,10 @@
 }
 
 .title-cart {
-  margin: 70px;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  margin: 10px 15px 30px 56px;
 }
 
 .spacing-products {
@@ -16,10 +19,15 @@
 }
 
 .product-cart-checkout {
-  border: 1px solid lightgray;
   padding: 30px;
   margin-top: 15px;
-  border-radius: 15px;
+  border-radius: 0px;
+  background: #ffffff;
+  box-shadow: 20px 20px 40px #d1d1d1, -20px -20px 40px #ffffff;
+}
+
+.product-subtotal {
+  text-align: end;
 }
 
 .subtotal-cart-checkout {
@@ -32,14 +40,30 @@
   margin-bottom: 10px;
 }
 
+.container-valueTotal {
+  max-width: 500px;
+  max-height: 100px;
+  margin-left: 30px;
+  margin-top: 75px;
+}
+
 .valueTotal {
   font-size: medium;
-  padding-left: 150px;
-  padding-top: 150px;
+  padding: 100px;
+  border-radius: 0px;
+  background: #ffffff;
+  box-shadow: 20px 20px 40px #d1d1d1, -20px -20px 40px #ffffff;
+  text-align: center;
+}
+
+.titleTotal {
+  font-size: x-large;
+  font-weight: 500;
+  color: #000000a1;
 }
 
 .valueTotal-price {
-  font-size: large;
+  font-size: 30px;
   font-weight: 700;
 }
 
@@ -51,4 +75,19 @@
   font-size: 16px;
   padding: 10px 10px;
   margin-left: 750px;
+}
+
+.btn-adc-products {
+  float: right;
+  margin-top: 30px;
+}
+
+.btn-confirm {
+  float: right;
+  margin-top: 30px;
+}
+
+.btn-finalized {
+  background-color: rgb(120, 217, 138) !important;
+  margin-top: 10px !important;
 }
